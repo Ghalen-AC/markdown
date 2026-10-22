@@ -1,0 +1,19 @@
+
+.dm-sans-uniquifier {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+.sora-uniquifier {
+  font-family: "Sora", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+h1 {
+  font-family: "Sora", sans-serif;
+  text-align: center;
+  color: #333;
+}
