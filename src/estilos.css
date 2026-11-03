@@ -60,3 +60,14 @@ body {
   color: #fff;
   font-family: "DM Sans", sans-serif;
 }
+.resultado h2 {
+  margin-top: 20px;
+  font-family: "DM Sans", sans-serif;
+  color: #fff;
+  text-align: center;
+}
+.datos h3 {
+  font-family: "DM Sans", sans-serif;
+  color: #fff;
+  text-align: center;
+}

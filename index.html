@@ -29,10 +29,16 @@
                     <option value="femenino">Femenino</option>
                     <option value="otro">Otro</option>
                 </select>
+                <label for="primerCorte">Primer Corte:</label>
+                <input type="number" id="primerCorte" name="primerCorte" step="0.01" required>
+                <label for="segundoCorte">Segundo Corte:</label>
+                <input type="number" id="segundoCorte" name="segundoCorte" step="0.01" required>
+                <label for="tercerCorte">Tercer Corte:</label>
+                <input type="number" id="tercerCorte" name="tercerCorte" step="0.01" required>
                 <button type="submit">Obtener promedio</button>
             </form>
         </div>
-        <div id="resultado">
+        <div class="resultado" id="resultado">
             <h2>Resultado:</h2>
             <p id="promedio"></p>
         </div>

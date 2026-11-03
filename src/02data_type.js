@@ -1,45 +1,58 @@
-
 const formulario = document.querySelector("#formulario");
+const resultado = document.querySelector("#resultado");
 
+formulario.addEventListener("submit", (e) => {
 
-formulario.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    
-    let nombre = document.querySelector("#nombre").value;
-    let apellido = document.querySelector("#apellido").value;
-    let edad = Number(document.querySelector("#edad").value);
-    let genero = document.querySelector("#genero").value;
-    let calificacion = Number(document.querySelector("#calificacion").value);
-    
-    let estudiante = true;
-
-    let edadFutura = edad + 1;
+    e.preventDefault();
 
     
-    let nombreMayuscula = nombre.toUpperCase();
-    let apellidoMayuscula = apellido.toUpperCase();
+    let nombres = document.querySelector("#nombre").value;
+    let apellidos = document.querySelector("#apellido").value;
+    let edad = parseInt(document.querySelector("#edad").value);
 
+    let primerCorte = parseFloat(document.querySelector("#primerCorte").value);
+    let segundoCorte = parseFloat(document.querySelector("#segundoCorte").value);
+    let tercerCorte = parseFloat(document.querySelector("#tercerCorte").value);
 
-    if (nombre === "juan" && apellido === "murillo" && edad === 18 && genero === "masculino") {
+    
+    nombres = nombres.trim().toUpperCase();
+    apellidos = apellidos.trim().toUpperCase();
 
-        let resultado = document.querySelector("#resultado");
+ 
+    const notas = [primerCorte, segundoCorte, tercerCorte];
 
-        resultado.innerHTML = `
-            <h2>Información del estudiante</h2>
-            <p>Estudiante: ${nombre.toUpperCase()} ${apellido.toUpperCase()}</p>
-            <p>Edad: ${edad}</p>
-            <p>Registro correcto</p>
-        `;
+    let suma = notas[0] + notas[1] + notas[2]   ;
 
+    let promedio = suma / notas.length;
+
+    
+    let estado = "";
+
+    if (promedio >= 3) {
+        estado = "APROBADO";
     } else {
-
-        document.querySelector("#resultado").innerHTML = `
-            <h2>Datos incorrectos</h2>
-            <p>Verifica el nombre, apellido y edad.</p>
-        `;
-
+        estado = "REPROBADO";
     }
+
+
+    resultado.innerHTML = `
+    <div class="datos">
+        <h3>Datos del estudiante</h3>
+
+        <p>Nombres: ${nombres}</p>
+        <p>Apellidos: ${apellidos}</p>
+        <p>Edad: ${edad}</p>
+
+        <h3>Notas</h3>
+
+        <p>Primer corte: ${notas[0]}</p>
+        <p>Segundo corte: ${notas[1]}</p>
+        <p>Tercer corte: ${notas[2]}</p>
+        <h3>Resultados académicos</h3>
+
+        <p>Promedio: ${promedio.toFixed(2)}</p>
+        <p>Estado: ${estado}</p>
+    </div>
+`;
 
 });
