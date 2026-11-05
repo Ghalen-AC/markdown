@@ -1,58 +1,26 @@
-const formulario = document.querySelector("#formulario");
-const resultado = document.querySelector("#resultado");
+const formulario = document.getElementById("formulario");
+const resultado = document.getElementById("resultado");
 
-formulario.addEventListener("submit", (e) => {
+formulario.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    e.preventDefault();
+  let nombre = document.getElementById("nombre").value;
+  let apellido = document.getElementById("apellido").value;
+  let edad = parseInt(document.getElementById("edad").value);
+  let primercorte = parseFloat(document.getElementById("primerCorte").value);
+  let segundocorte = parseFloat(document.getElementById("segundoCorte").value);
+  let tercercorte = parseFloat(document.getElementById("tercerCorte").value);
+  let promedio = (primercorte + segundocorte + tercercorte) / 3;
+     
+    if (nombre === "juan" && apellido === "murillo" && edad === 18) {
 
-    
-    let nombres = document.querySelector("#nombre").value;
-    let apellidos = document.querySelector("#apellido").value;
-    let edad = parseInt(document.querySelector("#edad").value);
+  resultado.innerHTML = 
+    `<p>Nombre: ${nombre.toUpperCase()}</p>
+     <p>Apellido: ${apellido.toUpperCase()}</p>
+     <p>Edad: ${edad}</p>
+     <p>Promedio: ${promedio.toFixed(2)}</p>`;
 
-    let primerCorte = parseFloat(document.querySelector("#primerCorte").value);
-    let segundoCorte = parseFloat(document.querySelector("#segundoCorte").value);
-    let tercerCorte = parseFloat(document.querySelector("#tercerCorte").value);
-
-    
-    nombres = nombres.trim().toUpperCase();
-    apellidos = apellidos.trim().toUpperCase();
-
- 
-    const notas = [primerCorte, segundoCorte, tercerCorte];
-
-    let suma = notas[0] + notas[1] + notas[2]   ;
-
-    let promedio = suma / notas.length;
-
-    
-    let estado = "";
-
-    if (promedio >= 3) {
-        estado = "APROBADO";
-    } else {
-        estado = "REPROBADO";
-    }
-
-
-    resultado.innerHTML = `
-    <div class="datos">
-        <h3>Datos del estudiante</h3>
-
-        <p>Nombres: ${nombres}</p>
-        <p>Apellidos: ${apellidos}</p>
-        <p>Edad: ${edad}</p>
-
-        <h3>Notas</h3>
-
-        <p>Primer corte: ${notas[0]}</p>
-        <p>Segundo corte: ${notas[1]}</p>
-        <p>Tercer corte: ${notas[2]}</p>
-        <h3>Resultados académicos</h3>
-
-        <p>Promedio: ${promedio.toFixed(2)}</p>
-        <p>Estado: ${estado}</p>
-    </div>
-`;
-
+} else {
+  resultado.innerHTML = "<p>Estudiante no encontrado.</p>";
+}
 });
